@@ -1,0 +1,6 @@
+*.iml
+licenseService/.idea/
+licenseService/target/
+springCloudConfigurationserver/.idea/compiler.xml
+springCloudConfigurationserver/.idea/
+springCloudConfigurationserver/target/
