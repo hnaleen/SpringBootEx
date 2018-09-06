@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: organizationservice
+  profiles:
+    active: default
+  cloud:
+    config:
+      enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true # for Docker (when there are no dns names and only ips)
+  client:
+    register-with-eureka: true  # registers this service with eureka
+    fetch-registry: true # maintains a local copy/cache of the services
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # can have multiple comma separated eureka servers
