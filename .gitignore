@@ -4,3 +4,8 @@ licenseService/target/
 springCloudConfigurationserver/.idea/compiler.xml
 springCloudConfigurationserver/.idea/
 springCloudConfigurationserver/target/
+/eurekaServiceDiscovery/.idea
+/organizationservice/.idea
+/organizationservice/target
+classes
+/eurekaServiceDiscovery/target
