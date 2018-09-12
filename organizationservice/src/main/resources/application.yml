@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: organizationservice
@@ -14,3 +15,5 @@ eureka:
     fetch-registry: true # maintains a local copy/cache of the services
     service-url:
       defaultZone: http://localhost:8761/eureka/ # can have multiple comma separated eureka servers
+server:
+  port: 8085
