@@ -3,10 +3,7 @@ package com.thoughtmechanix.licenses.controllers;
 import com.thoughtmechanix.licenses.model.License;
 import com.thoughtmechanix.licenses.services.LicenseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController @RequestMapping(value = "v1/organizations/{organizationId}/licenses") public class LicenseServiceController
 {
@@ -16,6 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
       @PathVariable("organizationId") String organizationId, @PathVariable("licenseId") String licenseId)
   {
     return service.getLicense(organizationId, licenseId);
+  }
+
+  @RequestMapping(value = "/{licenseId}/{clientType}", method = RequestMethod.GET) public License getLicenses(
+      @PathVariable("organizationId") String organizationId, @PathVariable("licenseId") String licenseId, @PathVariable("clientType")
+      String clientType)
+  {
+    System.out.println("clientType : " + clientType );
+    return service.getLicense(organizationId, licenseId, clientType);
   }
 
   @RequestMapping(value = "/add/{productName}/{licenseType}") public void addLicense(

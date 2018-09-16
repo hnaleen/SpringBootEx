@@ -20,6 +20,15 @@ public class License
   String licenseType;
 
   @Transient
+  String organizationName;
+
+  @Transient
+  String contactName;
+
+  @Transient
+  String contactEmail;
+
+  @Transient
   String comment;
 
   public String getLicenseId()
@@ -40,6 +49,21 @@ public class License
   public String getLicenseType()
   {
     return licenseType;
+  }
+
+  public String getOrganizationName()
+  {
+    return organizationName;
+  }
+
+  public String getContactName()
+  {
+    return contactName;
+  }
+
+  public String getContactEmail()
+  {
+    return contactEmail;
   }
 
   public String getComment()
@@ -74,6 +98,24 @@ public class License
   public License withComment(String comment)
   {
     this.comment = comment;
+    return this;
+  }
+
+  public License withOrganizationName(String organizationName)
+  {
+    this.organizationName = organizationName;
+    return this;
+  }
+
+  public License withContactName(String contactName)
+  {
+    this.contactName = contactName;
+    return this;
+  }
+
+  public License withContactEmail(String contactEmail)
+  {
+    this.contactEmail = contactEmail;
     return this;
   }
 }
