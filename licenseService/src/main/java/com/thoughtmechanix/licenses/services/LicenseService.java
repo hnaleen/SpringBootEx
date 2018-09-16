@@ -1,6 +1,7 @@
 package com.thoughtmechanix.licenses.services;
 
 import com.thoughtmechanix.licenses.client.OrganizationDiscoveryClient;
+import com.thoughtmechanix.licenses.client.OrganizationRibbonRestTemplateClient;
 import com.thoughtmechanix.licenses.config.ServiceConfig;
 import com.thoughtmechanix.licenses.model.License;
 import com.thoughtmechanix.licenses.model.Organization;
@@ -21,6 +22,9 @@ public class LicenseService
 
   @Autowired
   OrganizationDiscoveryClient organizationDiscoveryClient;
+
+  @Autowired
+  OrganizationRibbonRestTemplateClient organizationRibbonRestTemplateClient;
 
   public License getLicense(String organizationId, String licenseId)
   {
@@ -44,6 +48,10 @@ public class LicenseService
     if (clientType.equalsIgnoreCase("Discovery"))
     {
        return organizationDiscoveryClient.getOrganization(organizationId);
+    }
+    else if (clientType.equalsIgnoreCase("Rest"))
+    {
+      return organizationRibbonRestTemplateClient.getOrganization(organizationId);
     }
     return null;
   }
