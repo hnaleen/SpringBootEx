@@ -1,6 +1,8 @@
 package com.thoughtmechanix.licenses.services;
 
+import com.netflix.discovery.converters.Auto;
 import com.thoughtmechanix.licenses.client.OrganizationDiscoveryClient;
+import com.thoughtmechanix.licenses.client.OrganizationFeignClient;
 import com.thoughtmechanix.licenses.client.OrganizationRibbonRestTemplateClient;
 import com.thoughtmechanix.licenses.config.ServiceConfig;
 import com.thoughtmechanix.licenses.model.License;
@@ -25,6 +27,9 @@ public class LicenseService
 
   @Autowired
   OrganizationRibbonRestTemplateClient organizationRibbonRestTemplateClient;
+
+  @Autowired
+  OrganizationFeignClient organizationFeignClient;
 
   public License getLicense(String organizationId, String licenseId)
   {
@@ -52,6 +57,10 @@ public class LicenseService
     else if (clientType.equalsIgnoreCase("Rest"))
     {
       return organizationRibbonRestTemplateClient.getOrganization(organizationId);
+    }
+    else if (clientType.equalsIgnoreCase("Feign"))
+    {
+      return organizationFeignClient.getOrganization(organizationId);
     }
     return null;
   }
